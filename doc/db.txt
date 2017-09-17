@@ -1,0 +1,354 @@
+CREATE TABLE person (
+ID INTEGER PRIMARY KEY AUTOINCREMENT,
+fname VARCHAR(50),
+sname VARCHAR(50),
+lname VARCHAR(50) NOT NULL,
+isworks INTEGER NOT NULL );
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Иванов', 'Иван', 'Иванович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Петров', 'Петр', 'Петрович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Игорев', 'Игорь', 'Игоревич', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Васильев', 'Василий', 'Васильевич', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Александров', 'Александр', 'Александрович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Евгеньев', 'Евгений', 'Евгеньевич', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Андреев', 'Андрей', 'Андреевич', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников1', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников2', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников3', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников4', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников5', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников6', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников7', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников8', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников9', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников10', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников11', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников12', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников13', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников14', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников15', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников16', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников17', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников18', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников19', 'Сотрудник', 'Сотрудникович', 1);
+
+INSERT INTO person (lname, fname, sname, isworks)
+VALUES ('Сотрудников20', 'Сотрудник', 'Сотрудникович', 1);
+
+/*
+
+*/
+
+CREATE TABLE position (
+ID INTEGER PRIMARY KEY AUTOINCREMENT,
+name VARCHAR(50),
+rate REAL NOT NULL );
+
+INSERT INTO position (name, rate)
+VALUES ('Employee', 30000);
+
+INSERT INTO position (name, rate)
+VALUES ('Manager', 40000);
+
+INSERT INTO position (name, rate)
+VALUES ('Sales', 35000);
+
+INSERT INTO position (name, rate)
+VALUES ('CEO', 50000);
+
+alter table position add column lengthOfService REAL NOT NULL DEFAULT 1.0;
+alter table position add column maxLOS REAL NOT NULL DEFAULT 1.0;
+alter table position add column premiumForSubordinate REAL;
+
+/*
+
+
+*/
+
+CREATE TABLE person_position (
+idPerson INTEGER NOT NULL,
+idPosition INTEGER NOT NULL,
+dateBegin DATE NOT NULL,
+dateEnd DATE,
+FOREIGN KEY (idPerson) REFERENCES person(ID)
+FOREIGN KEY (idPosition) REFERENCES position(ID)
+);
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(1,4,'2000-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(2,2,'2000-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(3,2,'2000-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(4,2,'2005-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(5,2,'2010-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin, dateEnd) VALUES(6,2,'2010-1-1 12:0:0:0', '2015-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(6,3,'2015-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(7,2,'2015-1-1 12:0:0:0');
+/*
+
+*/
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(8,3,'2010-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(9,3,'2011-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(10,3,'2012-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(11,3,'2013-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(12,3,'2014-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(13,3,'2015-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(14,3,'2016-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(15,3,'2017-1-1 12:0:0:0');
+/*
+
+*/
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(16,1,'2010-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(17,1,'2011-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(18,1,'2012-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(19,1,'2013-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(20,1,'2014-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(21,1,'2015-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(22,1,'2016-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(23,1,'2010-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(24,1,'2011-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(25,1,'2012-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(26,1,'2013-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(27,1,'2014-1-1 12:0:0:0');
+
+INSERT INTO person_position(idPerson,idPosition,
+dateBegin) VALUES(28,1,'2015-1-1 12:0:0:0');
+
+/*
+
+*/
+
+CREATE TABLE head_subordinate (
+idHead INTEGER NOT NULL,
+idSubordinate INTEGER NOT NULL UNIQUE,
+FOREIGN KEY (idHead) REFERENCES person(ID)
+FOREIGN KEY (idSubordinate) REFERENCES person(ID)
+);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(1,1);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(1,2);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(1,3);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(1,4);
+
+/*
+ 2
+*/
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(2,8);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(2,9);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(2,10);
+
+/*
+ 3
+*/
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(3,5);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(3,16);
+
+/*
+ 4
+*/
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(4,6);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(4,7);
+
+/*
+ 5
+*/
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(5,23);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(5,24);
+
+/*
+ 6
+*/
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(6,17);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(6,18);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(6,19);
+
+/*
+ 7
+*/
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(7,20);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(7,21);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(7,22);
+
+/*
+ 8
+*/
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(8,11);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(8,12);
+
+/*
+ 9
+*/
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(9,15);
+
+/*
+ 10
+*/
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(10,25);
+
+/*
+ 11
+*/
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(11,13);
+
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(11,14);
+
+/*
+ 12
+*/
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(12,28);
+
+/*
+ 13
+*/
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(13,26);
+
+/*
+ 14
+*/
+INSERT INTO head_subordinate(idHead,idSubordinate) 
+VALUES(14,27);
